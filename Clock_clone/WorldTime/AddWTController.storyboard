@@ -26,7 +26,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dHJ-vE-2Qc" id="Vvr-Kh-mDD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="region" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etz-o3-jlu">
+                                                    <rect key="frame" x="20" y="11.5" width="48" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="etz-o3-jlu" firstAttribute="leading" secondItem="Vvr-Kh-mDD" secondAttribute="leadingMargin" id="nnv-mZ-q9d"/>
+                                                <constraint firstItem="etz-o3-jlu" firstAttribute="centerY" secondItem="Vvr-Kh-mDD" secondAttribute="centerY" id="uxi-0h-fM1"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationLabel" destination="etz-o3-jlu" id="mGQ-s4-9ql"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -65,9 +80,11 @@
                     <connections>
                         <outlet property="allwtTableView" destination="uNZ-Ez-7tT" id="Fmz-yD-CZT"/>
                         <outlet property="wtSearchBar" destination="2pU-Os-Np4" id="Ysq-Ki-Pri"/>
+                        <segue destination="3Ag-wx-pWl" kind="unwind" identifier="toWTTable" unwindAction="unwindToWTTable:" id="2bg-iJ-0qG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3Ag-wx-pWl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="89.855072463768124" y="79.6875"/>
         </scene>

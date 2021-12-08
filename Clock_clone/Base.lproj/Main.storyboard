@@ -92,6 +92,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editTableButton" destination="les-Kv-dfS" id="KgC-Xn-BZu"/>
                         <outlet property="worldTimeTableView" destination="5dd-F4-YmM" id="0cN-0m-40u"/>
                     </connections>
                 </viewController>
