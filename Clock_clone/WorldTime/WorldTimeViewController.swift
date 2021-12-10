@@ -17,6 +17,11 @@ class WorldTimeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.worldTimeTableView.reloadData()
+    }
+    
     @IBAction func unwindToWTTable(_ segue: UIStoryboardSegue) {
         guard let addVC = segue.source as? AddWTController else { return }
         self.worldTimeTable.append(addVC.selectedLocation)

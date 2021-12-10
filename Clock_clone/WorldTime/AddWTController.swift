@@ -9,7 +9,7 @@ import UIKit
 
 class AddWTController: UIViewController {
     
-    var locations: [(lc: String, tz: String)] = [("서울, 대한민국", "KST"), ("도쿄, 일본", "TST"), ("뉴욕, 미국", "ET"), ("런던, 잉글랜드", "GMT")]
+    var locations: [(lc: String, tz: String)] = [("서울, 대한민국", "KST"), ("도쿄, 일본", "TST"), ("베이징, 중국", "CST"), ("뉴욕, 미국", "EST"), ("런던, 잉글랜드", "GMT")]
     var selectedLocation: (lc: String, tz: String) = ("서울", "KST")
     
     @IBOutlet weak var wtSearchBar: UISearchBar!
