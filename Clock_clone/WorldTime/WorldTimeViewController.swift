@@ -62,12 +62,16 @@ extension WorldTimeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let city = worldTimeTable[indexPath.row].lc.split(separator: ",")[0]
         cell.locationLabel.text = String(city)
-        cell.timeCalCell.text = "오늘, +0시간"
-        
+        let curTime = Date()
         let df = DateFormatter()
-        df.dateFormat = "a hh:mm"
+        df.dateFormat = "yyyy-MM-dd HH"
         df.timeZone = TimeZone(abbreviation: worldTimeTable[indexPath.row].tz)
-        let timeText = df.string(from: Date())
+        let calResult = caculateHour(dateStr: df.string(from: curTime))
+        cell.timeCalCell.text = "오늘, \(calResult)시간"
+        
+        
+        df.dateFormat = "a hh:mm"
+        let timeText = df.string(from: curTime)
         cell.timeLabel.text = timeText
         
         return cell
@@ -86,5 +90,21 @@ extension WorldTimeViewController: UITableViewDelegate, UITableViewDataSource {
         self.worldTimeTable.insert(target, at: destinationIndexPath.row)
     }
     
+    func caculateHour(dateStr: String) -> Int {
+        // dateStr dateformat: yyyy-MM-dd HH
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH"
+        df.timeZone = TimeZone(abbreviation: "KST")
+        let cur = Date()
+        
+        guard let startTime = df.date(from: dateStr) else { return 0 }
+        guard let endTime = df.date(from: df.string(from: cur)) else { return 0 }
+        print(startTime)
+        print(endTime)
+        let cal = Int(endTime.timeIntervalSince(startTime)/(60*60))
+        
+        return cal
+    }
+    
 }
-
