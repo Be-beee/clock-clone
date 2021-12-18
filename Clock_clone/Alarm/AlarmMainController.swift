@@ -9,7 +9,7 @@ import UIKit
 
 class AlarmMainController: UIViewController {
     
-    var alarmTable: [String] = []
+    var alarmTable: [AlarmData] = []
     @IBOutlet weak var alarmTableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,7 +17,8 @@ class AlarmMainController: UIViewController {
     }
     
     @IBAction func addAlarm(_ sender: Any) {
-        
+        guard let addAlarmVC = UIStoryboard(name: "AddAlarmController", bundle: nil).instantiateViewController(withIdentifier: "AddAlarmNavController") as? UINavigationController else { return }
+        self.present(addAlarmVC, animated: true, completion: nil)
     }
 }
 
@@ -31,7 +32,9 @@ extension AlarmMainController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        
+        cell.timeLabel.text = ""
+        cell.alarmInfoLabel.text = alarmTable[indexPath.row].labelInfo + ", " + alarmTable[indexPath.row].repeatNum.description
+        cell.alarmSwitch.isOn = alarmTable[indexPath.row].isSoundOn
         
         return cell
     }
@@ -40,5 +43,8 @@ extension AlarmMainController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class AlarmCell: UITableViewCell {
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var alarmInfoLabel: UILabel!
+    @IBOutlet weak var alarmSwitch: UISwitch!
     
 }

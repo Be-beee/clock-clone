@@ -133,13 +133,43 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" id="b6L-Zk-RYo">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="85" id="b6L-Zk-RYo" customClass="AlarmCell" customModule="Clock_clone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b6L-Zk-RYo" id="TMD-G3-Xt8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-Dn-mWO">
+                                                    <rect key="frame" x="20" y="11" width="119" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tqa-tC-URM">
+                                                    <rect key="frame" x="345" y="27" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alarmInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXz-hr-7qc">
+                                                    <rect key="frame" x="20" y="53" width="112.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tqa-tC-URM" firstAttribute="centerY" secondItem="TMD-G3-Xt8" secondAttribute="centerY" id="EXs-3R-joQ"/>
+                                                <constraint firstItem="z0a-Dn-mWO" firstAttribute="top" secondItem="TMD-G3-Xt8" secondAttribute="topMargin" id="GN1-PF-jK8"/>
+                                                <constraint firstItem="LXz-hr-7qc" firstAttribute="bottom" secondItem="TMD-G3-Xt8" secondAttribute="bottomMargin" id="UPl-Z7-D54"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tqa-tC-URM" secondAttribute="trailing" id="V3i-pL-8qR"/>
+                                                <constraint firstItem="z0a-Dn-mWO" firstAttribute="leading" secondItem="TMD-G3-Xt8" secondAttribute="leadingMargin" id="cop-0P-G5z"/>
+                                                <constraint firstItem="LXz-hr-7qc" firstAttribute="leading" secondItem="TMD-G3-Xt8" secondAttribute="leadingMargin" id="fb2-a8-con"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="alarmInfoLabel" destination="LXz-hr-7qc" id="QZo-4w-Euv"/>
+                                            <outlet property="alarmSwitch" destination="Tqa-tC-URM" id="qvD-0B-bXx"/>
+                                            <outlet property="timeLabel" destination="z0a-Dn-mWO" id="xeC-ek-MA5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -171,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2WM-ay-vOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="-275"/>
+            <point key="canvasLocation" x="2974" y="-327"/>
         </scene>
         <!--타이머-->
         <scene sceneID="E23-kr-4g9">
@@ -254,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxY-ww-ChG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2274" y="403"/>
+            <point key="canvasLocation" x="2274" y="359"/>
         </scene>
         <!--세계 시계-->
         <scene sceneID="AXp-df-DTq">
@@ -292,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zU8-y5-cKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2273.913043478261" y="-275.22321428571428"/>
+            <point key="canvasLocation" x="2274" y="-327"/>
         </scene>
     </scenes>
     <resources>
