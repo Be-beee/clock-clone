@@ -23,28 +23,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YbD-t7-TR7">
                                 <rect key="frame" x="0.0" y="304" width="414" height="558"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KSW-1N-4nH">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" id="KSW-1N-4nH" customClass="InfoCell" customModule="Clock_clone" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KSW-1N-4nH" id="f7W-Jw-w7s">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5g5-6h-hNN">
-                                                    <rect key="frame" x="20" y="11.5" width="33" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="334" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="5g5-6h-hNN" firstAttribute="top" secondItem="f7W-Jw-w7s" secondAttribute="topMargin" id="06f-fG-PMH"/>
                                                 <constraint firstItem="5g5-6h-hNN" firstAttribute="leading" secondItem="f7W-Jw-w7s" secondAttribute="leadingMargin" id="HvU-6B-DQO"/>
-                                                <constraint firstItem="5g5-6h-hNN" firstAttribute="centerY" secondItem="f7W-Jw-w7s" secondAttribute="centerY" id="cJB-EX-INZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5g5-6h-hNN" secondAttribute="trailing" id="knz-C5-kWf"/>
+                                                <constraint firstItem="5g5-6h-hNN" firstAttribute="bottom" secondItem="f7W-Jw-w7s" secondAttribute="bottomMargin" id="mMb-hX-nbq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoTitleLabel" destination="5g5-6h-hNN" id="4FF-Ug-hFf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="jSh-We-R2K"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="juL-mH-Ubj"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -60,11 +69,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="알람 추가" id="4rn-af-Jby">
-                        <barButtonItem key="leftBarButtonItem" title="취소" id="d0e-bv-bRK"/>
-                        <barButtonItem key="rightBarButtonItem" title="저장" id="BxP-ny-9pI"/>
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="d0e-bv-bRK">
+                            <connections>
+                                <action selector="cancelAddingAlarm:" destination="Y6W-OH-hqX" id="Z7d-uC-Mu7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="BxP-ny-9pI">
+                            <connections>
+                                <action selector="saveAlarmInfo:" destination="Y6W-OH-hqX" id="4Vt-Wn-7L4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alarmInfoTableView" destination="YbD-t7-TR7" id="H2F-H0-YJm"/>
+                        <outlet property="timePicker" destination="PDf-e9-5Hq" id="JR9-2O-Hvm"/>
+                        <segue destination="m4d-6m-Uwu" kind="unwind" identifier="toAlarmMain" unwindAction="unwindToAlarmMain:" id="poK-9E-LlO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="m4d-6m-Uwu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="859" y="72"/>
         </scene>

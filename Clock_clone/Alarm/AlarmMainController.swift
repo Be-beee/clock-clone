@@ -20,6 +20,10 @@ class AlarmMainController: UIViewController {
         guard let addAlarmVC = UIStoryboard(name: "AddAlarmController", bundle: nil).instantiateViewController(withIdentifier: "AddAlarmNavController") as? UINavigationController else { return }
         self.present(addAlarmVC, animated: true, completion: nil)
     }
+    
+    @IBAction func unwindToAlarmMain(_ sender: UIStoryboardSegue) {
+        print("save alarm data")
+    }
 }
 
 extension AlarmMainController: UITableViewDelegate, UITableViewDataSource {
