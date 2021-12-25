@@ -273,7 +273,7 @@
         <!--스톱워치-->
         <scene sceneID="0ff-ZS-fhi">
             <objects>
-                <viewController id="B3D-wC-kL1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StopWatchViewController" id="B3D-wC-kL1" customClass="StopWatchViewController" customModule="Clock_clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vFi-Ae-rY9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
