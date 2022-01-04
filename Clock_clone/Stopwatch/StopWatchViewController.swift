@@ -9,12 +9,20 @@ import UIKit
 
 class StopWatchViewController: UIViewController {
 
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setButtonlayers()
     }
     
+    func setButtonlayers(){
+        cancelButton.clipsToBounds = true
+        startButton.clipsToBounds = true
+        cancelButton.layer.cornerRadius = 35
+        startButton.layer.cornerRadius = 35
+    }
 
     /*
     // MARK: - Navigation

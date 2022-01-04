@@ -20,8 +20,8 @@ class TimerViewController: UIViewController {
     func setButtonlayers(){
         cancelButton.clipsToBounds = true
         startButton.clipsToBounds = true
-        cancelButton.layer.cornerRadius = 40
-        startButton.layer.cornerRadius = 40
+        cancelButton.layer.cornerRadius = 35
+        startButton.layer.cornerRadius = 35
     }
     
     @IBAction func cancelTimer(_ sender: Any) {
