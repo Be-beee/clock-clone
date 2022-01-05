@@ -335,6 +335,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="취소"/>
                                 <connections>
                                     <action selector="cancelTimer:" destination="mS5-bt-Tjy" eventType="touchUpInside" id="C2b-qg-pFV"/>
+                                    <action selector="cancelTimer:" destination="B3D-wC-kL1" eventType="touchUpInside" id="LgG-b2-jMy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHf-es-jCD">
@@ -348,6 +349,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="시작"/>
                                 <connections>
+                                    <action selector="startTimer:" destination="B3D-wC-kL1" eventType="touchUpInside" id="V5W-zo-p3h"/>
                                     <action selector="startTimer:" destination="mS5-bt-Tjy" eventType="touchUpInside" id="bOq-bg-ORg"/>
                                 </connections>
                             </button>
@@ -368,6 +370,9 @@
                     <tabBarItem key="tabBarItem" title="스톱워치" image="stopwatch.fill" catalog="system" id="Jfe-pb-QAL"/>
                     <connections>
                         <outlet property="cancelButton" destination="tUu-XZ-YgB" id="fGd-Wj-2AY"/>
+                        <outlet property="milisecLabel" destination="hQI-6I-YVr" id="Ero-Oa-fXF"/>
+                        <outlet property="minuteLabel" destination="erj-Xr-Mvq" id="sLt-8J-ud6"/>
+                        <outlet property="secondLabel" destination="KA8-Fb-J8b" id="KV1-MP-aep"/>
                         <outlet property="startButton" destination="pHf-es-jCD" id="cOV-Dv-L9o"/>
                     </connections>
                 </viewController>
