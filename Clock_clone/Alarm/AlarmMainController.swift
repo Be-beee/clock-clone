@@ -22,7 +22,9 @@ class AlarmMainController: UIViewController {
     }
     
     @IBAction func unwindToAlarmMain(_ sender: UIStoryboardSegue) {
-        print("save alarm data")
+        guard let addVC = sender.source as? AddAlarmController else { return }
+        alarmTable.append(addVC.alarmData)
+        alarmTableView.reloadData()
     }
 }
 

@@ -12,6 +12,7 @@ class AddAlarmController: UIViewController {
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var alarmInfoTableView: UITableView!
     var alarmInfoTable: [String] = ["반복", "레이블", "사운드", "다시 알림"]
+    var alarmData: AlarmData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class AddAlarmController: UIViewController {
     @IBAction func saveAlarmInfo(_ sender: Any) {
         
         // save data
-        
+//        self.alarmData = AlarmData(time: self.timePicker.date, repeatNum: <#T##[String]#>, labelInfo: <#T##String#>, sound: <#T##String#>, isRepeatAgain: <#T##Bool#>, isSoundOn: <#T##Bool#>)
         self.performSegue(withIdentifier: "toAlarmMain", sender: self)
     }
 }
