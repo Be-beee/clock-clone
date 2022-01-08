@@ -26,7 +26,7 @@ class AddAlarmController: UIViewController {
     @IBAction func saveAlarmInfo(_ sender: Any) {
         
         // save data
-//        self.alarmData = AlarmData(time: self.timePicker.date, repeatNum: <#T##[String]#>, labelInfo: <#T##String#>, sound: <#T##String#>, isRepeatAgain: <#T##Bool#>, isSoundOn: <#T##Bool#>)
+        self.alarmData = AlarmData(time: self.timePicker.date, repeatNum: ["mon","tue"], labelInfo: "test", sound: "sound", isRepeatAgain: false, isSoundOn: true)
         self.performSegue(withIdentifier: "toAlarmMain", sender: self)
     }
 }
@@ -42,6 +42,14 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
         cell.infoTitleLabel.text = alarmInfoTable[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let addDetailVC = UIStoryboard(name: "AddDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "AddDetailViewController") as? AddDetailViewController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(addDetailVC, animated: true)
     }
     
     
